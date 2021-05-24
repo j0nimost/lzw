@@ -1,7 +1,7 @@
 ## LZW-GO
 This is a simple implementation of the LZW compression algorithm in Go
 
-[![Build Status](https://travis-ci.com/j0nimost/lzw.svg?branch=main)](https://travis-ci.com/j0nimost/lzw.svg?branch=main)
+[![Build Status](https://travis-ci.com/j0nimost/lzw.svg?branch=main)](https://travis-ci.com/github/j0nimost/lzw)
 
 ### Implementation
 
