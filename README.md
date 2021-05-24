@@ -9,8 +9,7 @@ Below is an example of the implimentation
 import (
 	"fmt"
 
-	"github.com/j0nimost/lzw_go/decode"
-	"github.com/j0nimost/lzw_go/encode"
+	"github.com/j0nimost/lzw"
 )
 
 func main() {
@@ -18,9 +17,9 @@ func main() {
 	// define a data set
 	input := "helloworldworldhellow"
 	fmt.Println("Your Input: ", input)
-	
-	enc_values := encode.LZW_Encode(input)
-	decoded_str := decode.LZW_Decode(enc_values)
+
+	encoded_str := encode.Encode(input)
+	decoded_str := decode.Decode(encoded_str)
 
 	fmt.Println(decoded_str)
 }
