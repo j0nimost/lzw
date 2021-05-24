@@ -1,48 +1,49 @@
 package lzw
 
+// Decode :(arr []int)The method decodes int array and returns a string
 func Decode(v []int) string {
-	ascii_deco := make(map[int]string)
-	output_str := ""
+	ascii := make(map[int]string)
+	outputstr := ""
 
 	// generate a map of ascii
 	for i := 0; i <= 255; i++ {
 		char := rune(i)
 
-		str_c := string(char)
-		ascii_deco[i] = str_c
+		strc := string(char)
+		ascii[i] = strc
 	}
 
 	// decode
-	dec_ascii := ascii_deco
+	decascii := ascii
 	n := 0
 	old := v[0]
-	str := string(dec_ascii[old])
-	n_char := ""
+	str := string(decascii[old])
+	nchar := ""
 
-	n_char += string([]rune(str)[0])
-	ascii_count := 256
-	output_str += str
+	nchar += string([]rune(str)[0])
+	asciicount := 256
+	outputstr += str
 
 	for b := 0; b < len(v)-1; b++ {
 		n = v[b+1]
 
-		_, ok := dec_ascii[n]
+		_, ok := decascii[n]
 		if !ok {
-			str = dec_ascii[old]
-			str = str + n_char
+			str = decascii[old]
+			str = str + nchar
 
 		} else {
-			str = dec_ascii[n]
+			str = decascii[n]
 
 		}
-		output_str += str
-		n_char = ""
-		n_char += string(str[0])
-		dec_ascii[ascii_count] = dec_ascii[old] + n_char
-		ascii_count++
+		outputstr += str
+		nchar = ""
+		nchar += string(str[0])
+		decascii[asciicount] = decascii[old] + nchar
+		asciicount++
 		old = n
 	}
 
-	return output_str
+	return outputstr
 
 }
