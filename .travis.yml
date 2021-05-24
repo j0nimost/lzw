@@ -1,4 +1,11 @@
 language: go
 
 go:
-  - "1.16"
+  - 1.16.x
+
+before_install:
+  - go get -v golang.org/x/lint/golint
+
+script:
+  - ./pre-commit
+  - go test -v
